@@ -1,0 +1,27 @@
+table {
+    width: 100%;
+    margin: auto;
+}
+a {
+    cursor: pointer;
+}
+img {
+    max-width: 32px;
+}
+thead {
+    font-weight: bold;
+    text-align: center;
+}
+.logout-url {
+    float: right;
+    cursor: pointer;
+    color: #6a8ff9;
+    transition: color 0.3s ease;
+}
+.logout-url:hover {
+    color: #8ea9f9;
+}
+.pagination-wrap {
+    width: 100%;
+    text-align: center;
+}

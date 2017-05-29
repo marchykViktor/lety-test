@@ -1,0 +1,56 @@
+<form #registrationform="ngForm">
+  <div class="form-horizontal form-registration">
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-3 control-label">Email/Логин</label>
+      <div class="col-sm-9">
+      <input type="email" class="form-control" id="inputEmail3" required="required"  
+			  [(ngModel)]="user.email" name="email" #email="ngModel"/>
+      </div>
+    </div>
+      <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger col-sm-offset-3 col-sm-9">
+				<div [hidden]="!email.errors.required">
+					Поле "Email/Логин" обязательное для заполнения
+				</div>
+			</div>
+    <div class="form-group">
+      <label for="inputPassword3" class="col-sm-3 control-label">Пароль</label>
+      <div class="col-sm-9">
+        <input type="password" class="form-control" id="inputPassword3" minlength="5" required="required" [(ngModel)]="user.password" name="password" required #password="ngModel"/>
+      </div>
+    </div>
+      <div *ngIf="password.errors && (password.dirty || password.touched)" class="alert alert-danger col-sm-offset-3 col-sm-9">
+				<div [hidden]="!password.errors.required">
+					Поле "Пароль" обязательное для заполнения
+				</div>
+        <div [hidden]="!password.errors.minlength">
+					Минимум 5 символов
+				</div>
+			</div>
+    <div class="form-group">
+      <label for="inputPassword3" class="col-sm-3 control-label">Повторите пароль</label>
+      <div class="col-sm-9">
+        <input type="password" class="form-control" id="inputPassword3" [(ngModel)]="user.rePassword" name="rePassword" required="required" minlength="5" #rePassword="ngModel">
+      </div>
+    </div>
+      <div *ngIf="rePassword.errors && (rePassword.dirty || rePassword.touched)" class="alert alert-danger col-sm-offset-3 col-sm-9">
+				<div [hidden]="!rePassword.errors.required">
+					Поле "Повторите пароль" обязательное для заполнения
+				</div>
+        <div [hidden]="!rePassword.errors.minlength">
+					Минимум 5 символов
+				</div>
+			</div>
+      <div *ngIf="!checkFieldPassword() && (rePassword.dirty || rePassword.touched)" class="alert alert-danger col-sm-offset-3 col-sm-9">
+        <div>Пароли не совпадают</div>
+			</div>
+      
+    <div class="form-group">
+      <div class="col-sm-offset-3 col-sm-9">
+        <button class="btn btn-default" (click)="addUser()" [disabled]="!registrationform.form.valid || !checkFieldPassword()">Зарегистрироваться</button>
+      </div>
+    </div>
+    <span (click)="goToLogin()" class="login-url">
+      Уже есть аккаунт?
+    </span>
+  </div>
+</form>

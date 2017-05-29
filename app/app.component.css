@@ -1,0 +1,13 @@
+:host {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    height: 100vh;
+    background-color: #fafafa;
+}
+:host > div {
+    margin: auto;
+}

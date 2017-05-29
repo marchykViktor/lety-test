@@ -1,0 +1,17 @@
+.registration-url {
+    float: right;
+    color: #6a8ff9;
+    transition: color 0.3s ease;
+    cursor: pointer;
+
+}
+.registration-url:hover {
+    color: #8ea9f9;
+}
+label {
+    font-size: 10px;
+    color: #4a4a4a;
+}
+.form-registration {
+    min-width: 480px;
+}
